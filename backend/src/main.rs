@@ -4,7 +4,8 @@ use axum::{
     extract::State
 };
 
-use sqlx_postgres::{Postgres, PgPool};
+use sqlx::postgres::PgPoolOptions;
+use sqlx::postgres::PgPool;
 use std::env;
 
 pub mod routes;
@@ -12,7 +13,7 @@ pub mod models;
 pub mod database;
 
 #[tokio::main]
-async fn main() {
+async fn main() -> Result<(), sqlx::Error> {
     #[derive(Clone)]
     struct AppState {
         pool: PgPool
@@ -28,4 +29,6 @@ async fn main() {
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
     axum::serve(listener, app).await.unwrap();
+
+    Ok(())
 }

@@ -1,4 +1,4 @@
-use sqlx_postgres::{PgPool};
+use sqlx::{PgPool};
 
 use crate::models;
 
