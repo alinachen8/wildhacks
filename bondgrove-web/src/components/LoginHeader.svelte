@@ -11,7 +11,7 @@
   <div class="max-w-[1400px] mx-auto w-full flex items-center justify-between p-4 py-6">
     <!-- set the page route to landing page -->
     <a href="/">
-    <h1 class="font-semibold">
+    <h1 class="font-semibold text-lg">
       BondGrove
     </h1>
     </a>

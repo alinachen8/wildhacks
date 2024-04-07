@@ -37,7 +37,7 @@
     </div>
   </form>
 
-  <h3 class="mx-5 font-semibold">Available Bonds: </h3>
+  <h3 class="mx-5 font-semibold text-xl">Available Bonds: </h3>
 
   <div class="marketplace p-4">
     <BondCard imgUrl={ryanField} description="Ryan Field Rebuild"/>

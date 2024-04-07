@@ -5,13 +5,7 @@
   import pic from "$lib/images/bg1.png";
 </script> 
 
-
-<!-- <div class="bg-[#fbe9d3]" style="width: 100vw; height: 100vh;"> -->
-  <!-- <div class="bg-image-container">
-    <img src={pic} alt="logo" class="center-bottom-image"/>
-  </div> -->
-
-<div class="bg-[#fbe9d3]" style="width: 100vw; height: 100vh;">
+<div class="bg-[#fbe9d3] font-size" style="width: 100vw; height: 100vh;">
   <div class="index">
     <LoginHeader />
   </div>
@@ -37,25 +31,7 @@
     background-color: #fbe9d3; /* Updated background color */
   }
 
-  :global(body) {
-    @apply bg-green-100;
-  }
-
-  :global(.index h1) {
-    font-size: 2rem;
-  }
-
-  :global(.slogan h3) {
-    font-size: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 15vh;
-    margin-top: 20px;
-  }
-
-  :global(.slogan p) {
+  .slogan p {
     font-size: 1rem;
     text-align: center;
     padding-top: 0;
@@ -87,10 +63,18 @@
   margin: 0 auto; /* Center the container horizontally */
 }
 
-.slogan {
+.slogan h3{
   text-align: center; /* Center the text */
   padding: 20px; /* Add padding to prevent text from touching the edges */
   margin-top: -15px; /* Adjust the top margin to move the text up */
+
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 15vh;
+  margin-top: 20px;
 }
 
 

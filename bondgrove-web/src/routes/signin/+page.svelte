@@ -1,14 +1,27 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
-  // ... other imports and script content remain the same ...
+  import { Alert } from 'flowbite-svelte';
+  import { onMount } from 'svelte';
+
+
   let email: string = ''; 
   let password: string = '';
+  let key = 1;
+
+  onMount(() => {
+    key++;
+  });
+
+  const login = async () => {
+    console.log('email: ', email, 'password: ', password);
+    goto('/market');
+  }
+
 
 </script>
 
-<!-- This is the main container that centers everything on the page -->
+{#key key}
 <div class="page-container">
-  <!-- The form itself, which will submit and prevent the default page reload -->
   <form on:submit|preventDefault={login}>
     <!-- Heading for Sign In -->
     <h2 style="color: black; font-weight: bold; font-size: 15px; margin-top: -140px; text-align: center;">SIGN IN</h2>
@@ -47,6 +60,7 @@
     <a href="/signup"> Sign up. </a>
   </form>
 </div>
+{/key}
 
 <svelte:head>
   <title>Sign In</title>
