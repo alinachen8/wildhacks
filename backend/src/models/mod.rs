@@ -1,10 +1,9 @@
-pub type UserId = i32;
-pub type ListingId = i32;
-
+pub type UserId = i64;
+pub type ListingId = i64;
 
 #[derive(Clone)]
 pub struct Listing {
-    listing_id_: i32,
+    listing_id_: i64,
     name_: String,
     price_: f64,
     interest_: f64,
@@ -13,7 +12,7 @@ pub struct Listing {
 
 #[derive(Clone)]
 pub struct DbUser {
-    user_id_: i32,
+    user_id_: i64,
     name_: String,
 }
 
