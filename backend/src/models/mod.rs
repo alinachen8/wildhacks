@@ -12,7 +12,7 @@ pub struct Listing {
 }
 
 #[derive(Clone, Serialize, Deserialize)]
-pub struct DbUser {
+pub struct User {
     pub id: i64,
     pub name: String,
 }
