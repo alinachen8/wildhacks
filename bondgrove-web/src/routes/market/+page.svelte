@@ -49,7 +49,7 @@
   </style>
 </head>
 <body>
-  <div class="card-container">
+  <div class="card-container flex border border-2">
     <!-- Example of multiple bond option cards -->
     <div class="card">
       <h2>Bond Option 1</h2>

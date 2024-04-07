@@ -17,13 +17,20 @@
     </a>
     
     <!-- signin buttons -->
-    <button on:click={() => goto('/signin')} class="signin-button duration-200 hover:text-green-400 cursor-pointer">
+    <button on:click={() => goto('/signin')} class="btn text-xs signin-button duration-200 cursor-pointer">
       Sign In
     </button>
 
-    <button on:click={() => goto('/signup')} class="signup-button duration-200 hover:text-green-400 cursor-pointer">
+    <button on:click={() => goto('/signup')} class="btn text-xs signup-button duration-200 cursor-pointer">
       Sign Up
     </button>
   </div> 
 
 </header>
+
+<style>
+  .btn {
+    @apply font-bold py-1 px-2 rounded;
+    @apply bg-green-400 text-white;
+  }
+</style>
