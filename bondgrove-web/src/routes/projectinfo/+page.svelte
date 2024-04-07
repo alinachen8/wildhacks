@@ -1,52 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About BondGrove</title>
-  <style>
-    /* Add styles for the about page */
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f4;
-      color: #333;
-      margin: 0;
-      padding: 20px;
-    }
+<script>
+  // Function to handle clicking on the "Show a Comparison" button
+  function showComparison() {
+    // Logic to show a comparison
+  }
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-    }
+  // Function to handle clicking on the "Buy Bonds" button
+  function buyBonds() {
+    // Logic to buy bonds
+  }
 
-    h1, h2 {
-      margin-top: 0;
-    }
+  // Function to handle clicking on the "Sell Bonds" button
+  function sellBonds() {
+    // Logic to sell bonds
+  }
 
-    p {
-      margin-bottom: 20px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>About BondGrove</h1>
-    <p>Welcome to BondGrove, where community investment meets financial growth.</p>
+  // Function to handle clicking on any of the update buttons
+  function handleUpdateClick(updateInfo) {
+    // Logic to handle update, possibly navigate to a detail page
+  }
+</script>
+
+<style>
+  /* Define your color scheme and layout here */
+  .button {
+    background-color: #6fa914; /* Replace with actual color code from the mockup */
+    border: none;
+    border-radius: 5px; /* Adjust as needed for oval shape */
+    padding: 2px 2px;
+    cursor: pointer;
+  }
+  .information {
+    background-color: #6fa914; /* Replace with actual color code from the mockup */
+    border: none;
+    border-radius: 50px; /* Adjust as needed for oval shape */
+    padding: 20px 20px;
+    cursor: pointer;
+    width: 40%;
+    margin-left: auto;
+    margin-right: 30px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center; /* This will center the buttons horizontally */
+    align-items: center;
+    margin-top: 200px;
     
-    <h2>Our Mission</h2>
-    <p>At BondGrove, our mission is to empower individuals to invest in revenue bonds that support community projects while earning returns on their investments.</p>
+  }
 
-    <h2>How It Works</h2>
-    <p>BondGrove connects investors with revenue bonds issued by municipalities and local governments to fund various community projects such as infrastructure improvements, public facilities, and environmental initiatives. When you invest in these bonds through BondGrove, you not only contribute to the betterment of your community but also earn a steady stream of income through fixed interest payments.</p>
+  /* Additional styling... */
+</style>
 
-    <h2>Our Vision</h2>
-    <p>We envision a future where everyone has the opportunity to invest in their community's growth and prosperity while building wealth for themselves and future generations.</p>
 
-    <h2>Get Started</h2>
-    <p>Ready to start investing in your community with BondGrove? Sign up today and join us in making a positive impact while achieving financial success.</p>
-
-    <p><a href="/signup">Sign Up</a></p>
+<!-- The main container -->
+<div class="main-container">
+  <!-- The header section -->
+  <div class="header">
+    <img class="logo" src="/path-to-logo.png" alt="Logo">
+    <h1>RYAN FIELD</h1>
+    <button class="button" on:click={showComparison}>SHOW A COMPARISON</button>
   </div>
-</body>
-</html>
+  
+  <!-- The updates section -->
+  <div class="updates">
+    <h2>Recent updates:</h2>
+    <!-- Example update; in practice, you'd map over an array of updates -->
+    <div class="update">
+      <img src="/path-to-update-image.jpg" alt="Update Image">
+      <button class="button" on:click={() => handleUpdateClick('Update Info')}>Update Info</button>
+    </div>
+    <!-- Repeat for other updates -->
+  </div>
+
+
+  <!-- The information section -->
+  <div class="information">
+    <div class="info-item">Revenue Bond Series: 2024 Series AA</div>
+    <div class="info-item">Minimum Bond Denomination: $5000</div>
+    <div class="info-item">Interest Rate: 3.5% Per Annum</div>
+    <div class="info-item">Interest Payout Dates: June 1 and December 1</div>
+    <div class="info-item">Maturity Date, December 1st, 2044</div>
+    <div class="info-item">Credit Rating: AA via S&P, Moody's</div>
+
+    <!-- ...other information items... -->
+    <!-- Interest payment dates button -->
+    <button class="button">Interest Payment Dates</button>
+    <!-- ...other buttons for each piece of information, as needed... -->
+  </div>
+
+
+  <!-- Action buttons for buying and selling bonds -->
+  <div class="actions">
+    <button class="button" on:click={buyBonds}>BUY BONDS</button>
+    <button class="button" on:click={sellBonds}>SELL BONDS</button>
+  </div>
+</div>
