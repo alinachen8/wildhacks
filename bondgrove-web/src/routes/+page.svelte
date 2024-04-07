@@ -1,7 +1,6 @@
 <script>
     import LoginHeader from "../components/LoginHeader.svelte";
-
- 
+    import { AccordionItem, Accordion } from 'flowbite-svelte';
 </script> 
 
 <div class="index">
