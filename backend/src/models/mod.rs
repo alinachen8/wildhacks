@@ -1,7 +1,8 @@
 pub type UserId = i64;
 pub type ListingId = i64;
+use serde::{ Deserialize, Serialize };
 
-#[derive(Clone)]
+#[derive(Clone, Serialize, Deserialize)]
 pub struct Listing {
     pub id: i64,
     pub name: String,
@@ -10,8 +11,8 @@ pub struct Listing {
     pub image_url: String,
 }
 
-#[derive(Clone)]
-pub struct DbUser {
+#[derive(Clone, Serialize, Deserialize)]
+pub struct User {
     pub id: i64,
     pub name: String,
 }

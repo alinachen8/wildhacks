@@ -1,9 +1,9 @@
-use sqlx::{PgPool, Row, Error};
+use sqlx::{PgPool, Row, Error, Postgres, QueryBuilder};
 use crate::models::{self, Listing};
 
-pub async fn create_listing(name: &str, goal: f64, interest: f64, image_url: &str, pool: &PgPool) -> Result<models::UserId, sqlx::Error> {
+pub async fn create_listing(name: &String, goal: f64, interest: f64, image_url: &String, pool: &PgPool) -> Result<models::UserId, sqlx::Error> {
     let res = sqlx::query(
-        "INSERT INTO listings (name, goal, interest, image_url) VALUES ('$1', $2, $3, '$4') RETURNING id;")
+        "INSERT INTO listings (name, goal, interest, image_url) VALUES ($1, $2, $3, $4) RETURNING id;")
         .bind(name)
         .bind(goal)
         .bind(interest)
@@ -16,7 +16,7 @@ pub async fn create_listing(name: &str, goal: f64, interest: f64, image_url: &st
 }
 
 pub async fn delete_listing(id: models::ListingId, pool: &PgPool) -> Result<(), sqlx::Error> {
-    sqlx::query("DELETE FROM listings WHERE id = $id;")
+    sqlx::query("DELETE FROM listings WHERE id = $1;")
         .bind(id)
         .execute(pool)
         .await?;
@@ -24,7 +24,7 @@ pub async fn delete_listing(id: models::ListingId, pool: &PgPool) -> Result<(), 
 }
 
 pub async fn get_listing(id: models::ListingId, pool: &PgPool) -> Result<models::Listing, sqlx::Error> {
-    match sqlx::query("SELECT * FROM listings WHERE id = $id;")
+    match sqlx::query("SELECT * FROM listings WHERE id = $1;")
         .bind(id)
         .fetch_one(pool).await {
             Ok(res) => { 
@@ -40,4 +40,18 @@ pub async fn get_listing(id: models::ListingId, pool: &PgPool) -> Result<models:
         }
 }
 
-pub async fn get_list(){}
+pub async fn edit_listing(listing: models::Listing, pool: &PgPool) -> Result<(), sqlx::Error>{
+    match sqlx::query(
+        "UPDATE listings
+            SET name = $1, goal = $2, interest = $3, image_url = $4 
+            WHERE id = $5")
+    .bind(listing.name)
+    .bind(listing.goal)
+    .bind(listing.interest)
+    .bind(listing.image_url)
+    .bind(listing.id)
+    .execute(pool).await {
+        Ok(_) => { return Ok(()); }
+        Err(x) => { return Err(x); }
+    }
+}
