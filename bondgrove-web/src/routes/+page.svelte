@@ -1,13 +1,21 @@
-<script> 
+<script>
+    import LoginHeader from "../components/LoginHeader.svelte";
+
+ 
 </script> 
 
 <div class="index">
-  <h2>bondgrove</h2>
+  <LoginHeader />
+  <h3>From Seedling to Skyline: Grow Investments, Grow Communities</h3>
   <p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda aut error magni porro consectetur at cumque sed facere molestiae tenetur? Optio atque eos ipsam nesciunt 
-    laboriosam, natus voluptate molestiae non!
+    Empowering your investments to support local projects and municipal growth. Where your finances fuel the future.
   </p>
 </div>
-<style> </style>
+
+<style lang="postcss">
+  :global(html) {
+    background-color: theme(colors.gray.100);
+  }
+</style>
 
 
