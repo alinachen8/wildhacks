@@ -5,10 +5,8 @@ use axum::{
     routing::patch,
     Router,
     extract::State,
-    handler
 };
 
-use sqlx::postgres::PgPoolOptions;
 use sqlx::postgres::PgPool;
 use std::env;
 
