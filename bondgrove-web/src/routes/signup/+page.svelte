@@ -16,7 +16,7 @@
   }
 </script> 
 
-<div class="page-container bg-green-100 flex justify-center items-center h-screen">
+<div class="page-container bg-custom-color flex justify-center items-center h-screen">
   <form on:submit|preventDefault={login} class="grid grid-cols-2 gap-4 bg-gray-100 p-8 rounded-lg shadow-md">
     <div class="col-span-1">
       <div class="form-group">

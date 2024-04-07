@@ -61,7 +61,7 @@
     align-items: center; /* Center children horizontally */
     height: 100vh; /* Full height of the viewport */
     /* Background color for the entire page, change as needed */
-    background-color: #f3e8cb;
+    background-color: #fbe9df;
     /* Font family for the entire page, change as needed */
     font-family: 'Helvetica', 'Arial', sans-serif;
   }
