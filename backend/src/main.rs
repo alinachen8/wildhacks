@@ -9,6 +9,8 @@ use axum::{
 
 use sqlx::postgres::PgPool;
 use std::env;
+use tower_http::cors::{Any, CorsLayer};
+use http::Method;
 
 pub mod routes;
 pub mod models;
@@ -25,6 +27,10 @@ async fn main() -> Result<(), sqlx::Error> {
         pool: PgPool::connect(env::var("DB_URL").unwrap().as_str()).await.unwrap()
     };
 
+    let cors = CorsLayer::new()
+        .allow_methods([Method::GET, Method::POST, Method::PATCH, Method::DELETE])
+        .allow_origin(Any);
+
     let app = Router::new()
         .route("/listings", post(routes::listings::post))
         .route("/listings", get(routes::listings::get))
@@ -36,7 +42,9 @@ async fn main() -> Result<(), sqlx::Error> {
         .route("/portfolio/sell", patch(routes::portfolio::sell))
         .route("/portfolio/buy", patch(routes::portfolio::buy))
         .route("/portfolio", get(routes::portfolio::get_portfolio))
-        .with_state(state);
+        .with_state(state)
+        .layer(cors)
+        ;
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
     axum::serve(listener, app).await.unwrap();
