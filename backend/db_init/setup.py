@@ -13,25 +13,18 @@ cur.execute("""
         name text
     );
 """)
-
 conn.commit()
 
 cur.execute("""
     CREATE TABLE IF NOT EXISTS listings (
         id serial primary key,
         name text,
-        price float,
+        goal float,
         interest float,
         image_url text
     );
 """)
-
 conn.commit()
-
-"""
-USERS-LISTING RELATIONSHIP TABLE
-(user_id: 32, listing_id: i32, value: i32)
-"""
 
 cur.execute("""
     CREATE TABLE IF NOT EXISTS portfolio (
@@ -40,8 +33,7 @@ cur.execute("""
         quantity float
     );
 """)
-
-
 conn.commit()
+
 cur.close()
 conn.close()
