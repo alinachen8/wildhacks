@@ -17,7 +17,7 @@
     </a>
     
     <!-- signin buttons -->
-    <button on:click={() => goto('/signin')} class="btn text-xs signin-button duration-200 cursor-pointer">
+    <button on:click={() => goto('/signin')} class="btn text-xs signin-button duration-200 cursor-pointer" style="margin-right: 10px;">
       Sign In
     </button>
 
