@@ -1,7 +1,9 @@
 use axum::{
     routing::get,
+    routing::post,
     Router,
-    extract::State
+    extract::State,
+    handler
 };
 
 use sqlx::postgres::PgPoolOptions;
@@ -12,19 +14,20 @@ pub mod routes;
 pub mod models;
 pub mod database;
 
+#[derive(Clone)]
+pub struct AppState {
+    pool: PgPool
+}
+
 #[tokio::main]
 async fn main() -> Result<(), sqlx::Error> {
-    #[derive(Clone)]
-    struct AppState {
-        pool: PgPool
-    }
 
     let state = AppState {
         pool: PgPool::connect(env::var("DB_URL").unwrap().as_str()).await.unwrap()
     };
 
     let app = Router::new()
-        .route("/", get(|| async { "Hello, World!" }))
+        .route("/listings", post(routes::listings::post))
         .with_state(state);
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();

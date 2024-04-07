@@ -1,20 +1,9 @@
 <script>
     import LoginHeader from "../components/LoginHeader.svelte";
-    
- 
-
-   
-   
-
-
-
-</script>
-
-
+    import { AccordionItem, Accordion } from 'flowbite-svelte';
+</script> 
 
 <img src="/images/bondgrove_logo_pic.webp" alt="logo">
-
-
 
 <div class="index">
   <LoginHeader />
