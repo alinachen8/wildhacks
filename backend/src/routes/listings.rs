@@ -1,10 +1,10 @@
 use axum::http::StatusCode;
 use axum::response::{IntoResponse, Response};
-use axum::{handler, extract::State, response, extract};
+use axum::{ extract::State, response, extract };
 
 use axum::extract::Query;
 
-use serde::{ Deserialize, Serialize };
+use serde::Deserialize;
 
 use crate::database;
 use crate::AppState;

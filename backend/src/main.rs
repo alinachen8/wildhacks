@@ -5,10 +5,8 @@ use axum::{
     routing::patch,
     Router,
     extract::State,
-    handler
 };
 
-use sqlx::postgres::PgPoolOptions;
 use sqlx::postgres::PgPool;
 use std::env;
 
@@ -32,7 +30,9 @@ async fn main() -> Result<(), sqlx::Error> {
         .route("/listings", get(routes::listings::get))
         .route("/listings", delete(routes::listings::delete))
         .route("/listings", patch(routes::listings::patch))
-        //.route("/users", post(routes::users::post))
+        .route("/users", post(routes::users::post))
+        .route("/users", get(routes::users::get))
+        .route("/users", patch(routes::users::patch))
         .with_state(state);
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();

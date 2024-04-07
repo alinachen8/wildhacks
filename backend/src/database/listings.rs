@@ -1,4 +1,4 @@
-use sqlx::{PgPool, Row, Error, Postgres, QueryBuilder};
+use sqlx::{PgPool, Row};
 use crate::models::{self, Listing};
 
 pub async fn create_listing(name: &String, goal: f64, interest: f64, image_url: &String, pool: &PgPool) -> Result<models::UserId, sqlx::Error> {
