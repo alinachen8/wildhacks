@@ -23,6 +23,9 @@ pub struct AppState {
 
 #[tokio::main]
 async fn main() -> Result<(), sqlx::Error> {
+    env::set_var("DATABASE_URL", "postgresql://wecu:MwrK5eYM29e1Es99Uts5tw@wildhacks-14336.5xj.gcp-us-central1.cockroachlabs.cloud:26257/data?sslmode=verify-full");
+    env::set_var("DB_URL", "postgresql://wecu:MwrK5eYM29e1Es99Uts5tw@wildhacks-14336.5xj.gcp-us-central1.cockroachlabs.cloud:26257/data?sslmode=verify-full");
+
     let state = AppState {
         pool: PgPool::connect(env::var("DB_URL").unwrap().as_str()).await.unwrap()
     };

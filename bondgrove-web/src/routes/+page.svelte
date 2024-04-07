@@ -7,7 +7,7 @@
 
 
 
-<div class="bg-[#f9f0e5]" style="width: 100vw; height: 100vh;">
+<div class="bg-[#fbe9d3]" style="width: 100vw; height: 100vh;">
   <div class="bg-image-container">
     <img src={pic} alt="logo" class="center-bottom-image"/>
   </div>
@@ -32,7 +32,7 @@
   :global(html) {
     /* background-color: theme(colors.green.100); */
     font-size: 1.5rem;
-    background-color: #f9f0e5;
+    background-color: #fbe9d3;
   }
   
   :global(body) {
