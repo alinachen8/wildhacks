@@ -53,7 +53,7 @@ pub async fn buy (extract::State(state): extract::State<AppState>,
         extract::Json(request): extract::Json<BuyListingRequest>) -> Result<response::Json<BuyListingResponse>, StatusCode> {
     match database::transactions::buy_bond(request.user_id, request.listing_id, request.quantity, &state.pool).await {
         Ok(_) => { return Ok(response::Json(BuyListingResponse{})); }
-        Err(_) => { return Err(StatusCode::INTERNAL_SERVER_ERROR); }
+        Err(_) => { println!("!!!"); return Err(StatusCode::INTERNAL_SERVER_ERROR); }
     } 
 }
 

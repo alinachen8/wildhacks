@@ -4,7 +4,7 @@ use crate::models;
 
 
 pub async fn sell_bond(user_id: i64, listing_id: i64, quantity: f64, pool: &PgPool) -> Result<(), sqlx::Error>{
-    match sqlx::query("SELECT * FROM portfolio WHERE user_id = $1 AND portfolio = $2;")
+    match sqlx::query("SELECT * FROM portfolio WHERE (user_id = $1 AND listing_id = $2);")
         .bind(user_id)
         .bind(listing_id)
         .fetch_one(pool).await {
@@ -42,7 +42,8 @@ pub async fn sell_bond(user_id: i64, listing_id: i64, quantity: f64, pool: &PgPo
 }
 
 pub async fn buy_bond(user_id: i64, listing_id: i64, quantity: f64, pool: &PgPool) -> Result<(), sqlx::Error> {
-    match sqlx::query("SELECT * FROM portfolio WHERE user_id = $1 AND portfolio = $2;")
+    println!("45");
+    match sqlx::query("SELECT * FROM portfolio WHERE user_id = ($1) AND listing_id = ($2);")
         .bind(user_id)
         .bind(listing_id)
         .fetch_one(pool).await {
@@ -57,7 +58,7 @@ pub async fn buy_bond(user_id: i64, listing_id: i64, quantity: f64, pool: &PgPoo
                     .execute(pool)
                     .await {
                         Ok(_) => { return Ok(()); }
-                        Err(x) => { return Err(x); }
+                        Err(x) => { println!("61"); dbg!(&x); return Err(x); }
                     }
             }
             Err(sqlx::Error::RowNotFound) => { 
@@ -69,11 +70,12 @@ pub async fn buy_bond(user_id: i64, listing_id: i64, quantity: f64, pool: &PgPoo
                     .execute(pool)
                     .await {
                         Ok(_) => { return Ok(()); }
-                        Err(x) => { return Err(x); }
+                        Err(x) => { println!("61"); dbg!(&x); println!("?"); return Err(x); }
                     }
              }
             Err(x) => { 
                 // something weird happened.
+                dbg!(&x);
                 return Err(x); 
             }
         }

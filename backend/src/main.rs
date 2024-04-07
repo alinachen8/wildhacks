@@ -33,9 +33,9 @@ async fn main() -> Result<(), sqlx::Error> {
         .route("/users", post(routes::users::post))
         .route("/users", get(routes::users::get))
         .route("/users", patch(routes::users::patch))
-        .route("/portfolio/sell", patch(routes::portfolio::buy))
-        .route("/portfolio/buy", patch(routes::portfolio::sell))
-        .route("portfolio", get(routes::portfolio::get_portfolio))
+        .route("/portfolio/sell", patch(routes::portfolio::sell))
+        .route("/portfolio/buy", patch(routes::portfolio::buy))
+        .route("/portfolio", get(routes::portfolio::get_portfolio))
         .with_state(state);
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();

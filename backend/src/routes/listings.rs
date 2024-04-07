@@ -51,7 +51,6 @@ pub async fn delete(State(state): State<AppState>, parameters: Query<IdOnly>) ->
 }
 
 pub async fn patch(State(state): State<AppState>, extract::Json(listing): extract::Json<models::Listing>) -> Result<Response, StatusCode> {
-    println!("!!!");
     match database::listings::edit_listing(listing, &state.pool).await {
         Ok(_) => { return Ok(String::from("Success").into_response()); }
         Err(_) => { return Err(StatusCode::NOT_FOUND); }
