@@ -17,11 +17,11 @@
     </a>
     
     <!-- signin buttons -->
-    <button on:click={() => goto('/signin')} class="duration-200 hover:text-green-400 cursor-pointer">
+    <button on:click={() => goto('/signin')} class="signin-button duration-200 hover:text-green-400 cursor-pointer">
       Sign In
     </button>
 
-    <button on:click={() => goto('/signup')} class="duration-200 hover:text-green-400 cursor-pointer">
+    <button on:click={() => goto('/signup')} class="signup-button duration-200 hover:text-green-400 cursor-pointer">
       Sign Up
     </button>
   </div> 
